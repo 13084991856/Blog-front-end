@@ -15,7 +15,7 @@ export default {
       // 页面pc端滚动
       window.scrollTo({
         top: 0,
-        behavior: "smooth",
+        behavior: "smooth", //平滑滚动
       });
       // 移动端滚动
       let timer = setInterval(() => {
@@ -51,8 +51,9 @@ export default {
         let nav = document.querySelector(".common-header");
         if (
           (document.body.scrollTop >= 100 ||
-          window.pageYOffset >= 100 ||
-          document.documentElement.scrollTop >= 100) && nav
+            window.pageYOffset >= 100 ||
+            document.documentElement.scrollTop >= 100) &&
+          nav
         ) {
           this.flag = true;
         } else {

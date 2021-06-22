@@ -63,7 +63,7 @@ export default {
           },
         })
         .then((res) => {
-          console.log(res);
+          //console.log(res);
           if (res.data.code === 0) {
             this.data = res.data.data;
             this.likeCount = res.data.data.like_count;
@@ -79,7 +79,7 @@ export default {
             article_id: this.$route.params.id,
           })
           .then((res) => {
-            console.log(res.data.data[0]);
+            //console.log(res.data.data[0]);
             this.likeCount = res.data.data[0].like_count;
             this.isClick = false;
           });

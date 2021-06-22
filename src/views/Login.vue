@@ -1,5 +1,6 @@
 <template>
   <div>
+    <!-- 登录 -->
     <div class="LoginBox" v-if="status == 1">
       <div class="LoginBox-Box">
         <el-form
@@ -12,10 +13,15 @@
           key="1"
         >
           <el-form-item prop="name">
-            <el-input v-model="form.name" placeholder="用户名"></el-input>
+            <el-input
+              v-model="form.name"
+              placeholder="用户名"
+              key="name"
+            ></el-input>
           </el-form-item>
           <el-form-item prop="password">
             <el-input
+              key="password"
               type="password"
               v-model="form.password"
               @keyup.enter.native="onSubmit"
@@ -41,8 +47,8 @@
         </el-form>
       </div>
     </div>
-
-    <div class="register" v-else>
+    <!-- 注册 -->
+    <div class="register" v-else-if="status == 2">
       <div class="registerBox">
         <el-form
           :model="regform"
@@ -57,12 +63,14 @@
             <el-input
               v-model="regform.regname"
               placeholder="请输入用户名"
+              key="regname"
             ></el-input>
           </el-form-item>
           <el-form-item prop="nickname">
             <el-input
               v-model="regform.nickname"
               placeholder="请输入昵称"
+              key="nickname"
             ></el-input>
           </el-form-item>
           <el-form-item prop="pass">
@@ -71,6 +79,7 @@
               placeholder="请输入密码"
               v-model="regform.pass"
               autocomplete="off"
+              key="pass"
             ></el-input>
           </el-form-item>
           <el-form-item prop="checkPass">
@@ -79,6 +88,7 @@
               placeholder="请再次输入密码"
               v-model="regform.checkPass"
               autocomplete="off"
+              key="checkPass"
             ></el-input>
           </el-form-item>
           <el-form-item class="regbtn">
@@ -88,7 +98,11 @@
             <el-button class="reset" type="info" @click="reset">重置</el-button>
           </el-form-item>
           <el-form-item>
-            <p>注册完成？去<span class="sign" @click="Gotologin">登录</span></p>
+            <span
+              >注册完成？去<span class="sign" @click="Gotologin"
+                >登录</span
+              ></span
+            >
             <span
               >随便看看？去<span class="sign" @click="Gohome">主页</span></span
             >
@@ -96,6 +110,7 @@
         </el-form>
       </div>
     </div>
+
     <!-- 全屏等待加载 -->
     <div v-loading.fullscreen.lock="loading"></div>
   </div>
@@ -151,15 +166,7 @@ export default {
             trigger: "blur",
           },
         ],
-        password: [
-          { required: true, message: "请输入密码", trigger: "blur" },
-          {
-            min: 3,
-            max: 15,
-            message: "长度在 3 到 15 个字符",
-            trigger: "blur",
-          },
-        ],
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }],
       },
 
       regrules: {
@@ -224,9 +231,12 @@ export default {
 
     Gotologin() {
       this.status = 1;
+      this.reset();
     },
     sign() {
       this.status = 2;
+      this.form.name = "";
+      this.form.password = "";
     },
 
     // 登录
@@ -236,7 +246,7 @@ export default {
           // this.loading = true;
           // 发起登录请求
           this.$http.post("/api/users/login", this.form).then((res) => {
-            console.log(res);
+            //console.log(res);
             if (res.data.code === 0) {
               // 登录成功，去vuex里修改登录状态
               this.$store.commit("changIsSignIn", 1);
@@ -244,12 +254,12 @@ export default {
               Cookie.set("token", res.data.token);
               // 设置vuex里的token
               this.$store.commit("setToken", res.data.token);
-              console.log(this.$store.state.token);
+              //console.log(this.$store.state.token);
               this.$router.push({ name: "home" });
               setTimeout(() => {
                 this.loading = false;
               }, 1000);
-            } else if(res.data.code === -1) {
+            } else if (res.data.code === -1) {
               this.$message({
                 message: "账号或密码不正确",
                 type: "error",
@@ -302,6 +312,7 @@ export default {
     color: rgb(18, 217, 243);
     font-weight: 600;
     margin-right: 15px;
+    cursor: pointer;
   }
 }
 

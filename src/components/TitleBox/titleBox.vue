@@ -1,14 +1,14 @@
 <template>
   <div class="container">
-    <div class="title">{{title}}</div>
+    <div class="title">{{ title }}</div>
     <div class="bottom"></div>
   </div>
 </template>
 
 <script>
-  export default {
-    props:['title']
-  }
+export default {
+  props: ["title"],
+};
 </script>
 
 <style lang="scss" scoped>
@@ -17,7 +17,7 @@
   font-size: 16px;
 }
 .bottom {
-  width: 5%;
+  width: 7%;
   border-bottom: 2px solid #999;
 }
 </style>

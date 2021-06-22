@@ -1,12 +1,7 @@
 <template>
   <div class="wrapper wow slideInLeft">
     <div class="content">
-      <el-form
-        ref="form"
-        label-width="80px"
-        :inline="false"
-        size="normal"
-      >
+      <el-form ref="form" label-width="80px" :inline="false" size="normal">
         <el-form-item label="昵称">
           <el-input v-model="nickname"></el-input>
         </el-form-item>
@@ -79,20 +74,36 @@ export default {
     },
     // 更新用户信息
     async onSubmit() {
-      if (this.nickname === "怪蜀黍") {
-        return this.$message.error("昵称已经被占用了，请换一个昵称吧~");
-      }
-      await this.$http.post("/api/users/updateUser", {
-        nickname: this.nickname,
-        head_img: this.imageUrl,
-      });
-      // 刷新页面
-      location.reload();
+      // if (this.nickname === "怪蜀黍") {
+      //   return this.$message.error("昵称已经被占用了，请换一个昵称吧~");
+      // }
+      await this.$http
+        .post("/api/users/updateUser", {
+          nickname: this.nickname,
+          head_img: this.imageUrl,
+        })
+        .then((res) => {
+          if (res.data.code == -1) {
+            this.$message({
+              message: "昵称已被占用，请修改",
+              type: "warning",
+            });
+          } else {
+            this.$message({
+              message: "保存成功",
+              type: "success",
+            });
+            // 刷新页面
+            //location.reload();
+            this.$router.push({ path: "/" });
+            location.reload();
+          }
+        });
     },
   },
   created() {
     this.GetInfo();
-    console.log(this.defaultAvatar);
+    //console.log(this.defaultAvatar);
   },
   mounted() {
     let wow = new WOW.WOW({

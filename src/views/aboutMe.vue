@@ -4,7 +4,7 @@
       <div class="block aboutMe">
         <div class="avatar">
           <img
-            src="https://portrait.gitee.com/uploads/avatars/user/2763/8289321_huang-rijian_1614261509.png!avatar100"
+            src="http://59.110.143.188:3000\uploads\20210611\1623378587962.jpeg"
             alt=""
           />
         </div>

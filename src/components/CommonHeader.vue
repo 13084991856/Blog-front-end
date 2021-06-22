@@ -4,10 +4,12 @@
     <header>
       <div class="wrapper">
         <el-row>
-          <el-col :span="4">
-            <div class="logo threed">黄先森个人博客站</div>
+          <el-col :span="3">
+            <div class="logo threed" style="font-size: 18px !important">
+              黄先森个人博客站
+            </div>
           </el-col>
-          <el-col :span="20">
+          <el-col :span="21">
             <!-- 导航菜单 -->
             <el-menu
               mode="horizontal"
@@ -72,6 +74,14 @@
                       ? "尊敬的：" + UserInfo.nickname
                       : "尊敬的游客：" + UserInfo.nickname
                   }},欢迎您</router-link
+                >
+              </el-menu-item>
+              <el-menu-item index="10" @click="goToto">
+                <router-link
+                  to="/changePass"
+                  v-if="isSignIn === 1"
+                  class="change"
+                  >修改密码</router-link
                 >
               </el-menu-item>
             </el-menu>
@@ -164,7 +174,7 @@ export default {
     // 获取用户信息
     GetInfo() {
       this.$http.get("/api/users/info").then((res) => {
-        console.log(res);
+        //console.log(res);
         this.UserInfo = res.data.data;
         this.nickname = res.data.data.nickname;
         let avatar = res.data.data.head_img;
@@ -210,7 +220,7 @@ header {
   background-color: #2d2d2d;
   box-shadow: 1px 1px 1px 1px rgb(41, 40, 40);
   .logo {
-    font-size: 18px;
+    font-size: 18px !important ;
     color: #fff;
     text-align: center;
     line-height: 60px;
@@ -231,6 +241,10 @@ header {
     }
     .login {
       background: rgb(19, 167, 226);
+      color: #fff;
+    }
+    .change {
+      background: rgb(7, 218, 130);
       color: #fff;
     }
   }

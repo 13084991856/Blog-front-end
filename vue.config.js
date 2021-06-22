@@ -4,4 +4,16 @@ module.exports = {
     // 跨域代理
     //devServer: {},
     //configureWebpack: { externals: 'hls.js' } // 在这配置webpack的externals这个字段
+
+    /* //配置别名
+    configureWebpack: {
+        resolve: {
+            alias: {
+                'assets': '@/assets',
+                'components': '@/components',
+                'network': '@/network',
+                'musicNetWork': '@/musicNetWork',
+            }
+        }
+    } */
 }

@@ -85,7 +85,7 @@ export default {
       number.reverse();
 
       let nesArrayData = [];
-      number = Array.from(new Set(number));
+      number = Array.from(new Set(number)); //点赞数去重
       number.forEach((numberItem) => {
         array.some((arrayItem) => {
           if (arrayItem.like_count === numberItem) {
@@ -96,7 +96,7 @@ export default {
       });
 
       this.$store.commit("setLikeArry", nesArrayData);
-      this.$EventBus.$emit("Render");
+      this.$EventBus.$emit("Render"); //事件总线，全局注册事件
     },
 
     // 获取全部文章
@@ -106,7 +106,7 @@ export default {
           this.ThumbRank(res.data.data);
           // 获取前18篇文章
           this.AllArticle = res.data.data.slice(0, 18);
-          // 截取最新的6篇给轮播图展示  .concat() 先将文章数组复制出一个新数组再进行反转，如果使用.reverse(),则会改变文章数组，而不产生新数组
+          // 截取最初的6篇给轮播图展示  .concat() 先将文章数组复制出一个新数组再进行反转，如果使用.reverse(),则会改变文章数组，而不产生新数组
           this.newArticle = res.data.data.concat().reverse().slice(0, 6);
           this.LbtArticle = res.data.data.slice(0, 6);
           // 截取一部分给轮播图右边的盒子
@@ -147,9 +147,9 @@ export default {
     let wow = new WOW.WOW({
       boxClass: "wow",
       animateClass: "animated",
-      offset: 0,
+      offset: 0, //距离可视区域多少开始执行动画
       mobile: true,
-      live: false,
+      live: false, //异步加载的内容是否有效
     });
     wow.init();
   },

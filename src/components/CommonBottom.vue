@@ -14,9 +14,9 @@
         </div>
       </div>
       <p>
-        <span> Copyright © www.hrjblog.top All Rights Reserved. </span>
+        <span> Copyright © 13084991856@163.com All Rights Reserved. </span>
       </p>
-      <p class="login" @click="login">管理员登录</p>
+      <p class="login" @click="login">=> 管理员登录</p>
       <p>
         <span> 备案号：粤ICP备2021059936号-1 </span>
       </p>
@@ -58,6 +58,11 @@ export default {
     transform: translate(-50%, -50%);
     color: #73777a;
     font-size: 14px;
+    .login {
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 700;
+    }
     .pic {
       display: flex;
       justify-content: center;

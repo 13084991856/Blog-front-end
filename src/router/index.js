@@ -14,6 +14,8 @@ const detail = () =>
     import ('@/views/detail.vue')
 const personal = () =>
     import ('@/views/Personal.vue')
+const changePass = () =>
+    import ('@/views/ChangePass.vue')
 const article = () =>
     import ('@/views/Article.vue')
 const editArticle = () =>
@@ -48,6 +50,15 @@ const routes = [{
                 path: '/Lists',
                 name: 'Lists',
                 component: Lists
+            },
+            {
+                path: '/changePass',
+                name: 'changePass',
+                component: changePass,
+                meta: {
+                    // 需要登录权限
+                    requireAuth: true
+                }
             },
             {
                 path: '/personal',

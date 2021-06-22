@@ -79,7 +79,7 @@ export default {
                 // setTimeout(() => {
                 //   location.reload();
                 // }, 500);
-                this.getMyBlogList()
+                this.getMyBlogList();
               }
             })
             .catch((e) => {
@@ -95,10 +95,10 @@ export default {
     },
     getMyBlogList() {
       this.$http.get("/api/article/myList").then((res) => {
-        console.log(res);
+        //console.log(res);
         if (res.data.code === 0) {
           this.articleList = res.data.data;
-          console.log(this.articleList);
+          //console.log(this.articleList);
         }
       });
     },

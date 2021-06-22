@@ -45,7 +45,7 @@ export default {
           if (res.data.code === 0) {
             // 获取文章数组
             this.AllArticle = res.data.data;
-            console.log(this.AllArticle);
+            //console.log(this.AllArticle);
           }
         });
     },

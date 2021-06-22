@@ -18,6 +18,7 @@ import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
 Vue.use(mavonEditor)
 
+
 import 'wowjs/css/libs/animate.css'
 
 // 引入图片懒加载
@@ -35,7 +36,7 @@ import axios from 'axios'
 // 全局配置  挂载到vue的原型对象上  这样每个vue组件都可以通过this.$http 使用axios
 Vue.prototype.$http = axios;
 
-// 导入
+// 导入vuex
 import store from './store/index.js'
 // 挂载到Vue实例上，全局可通过this.$store进行调用
 Vue.prototype.$store = store
