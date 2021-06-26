@@ -32,13 +32,14 @@ import {
 export default {
   data() {
     return {
-      songName: "cmj",
+      songName: "三个人的时光",
       music: {
-        title: "所念皆星河",
-        artist: "CMJ",
+        title: "三个人的时光",
+        artist: "吴欣睿",
         //https://rt01-sycdn.kuwo.cn/7b5137bac33d558e774c26a95ed38bf4/6077019a/resource/n1/18/25/1394031454.mp3
-        src: "http://m7.music.126.net/20210610205558/22008a1505df63f448911a785cab6164/ymusic/0409/0458/525f/3cb7c25a4832d2fd2b70e5ef2a30c99b.mp3",
-        pic: "http://p4.music.126.net/M34HFzLO2xhDLuX_zEALKA==/109951164291347934.jpg?param=300y300",
+        //http://m7.music.126.net/20210610205558/22008a1505df63f448911a785cab6164/ymusic/0409/0458/525f/3cb7c25a4832d2fd2b70e5ef2a30c99b.mp3
+        src: "http://47.106.179.142:3000/audio/1.mp3",
+        pic: "http://p3.music.126.net/vQYQMovfEtuGNCqndIUm4A==/50577534878590.jpg?param=300y300",
         lrc: "[00:00.00] (,,•́ . •̀,,) 抱歉，当前歌曲暂无歌词",
       },
       // 音频列表
@@ -70,7 +71,8 @@ export default {
           songData.src = musicUrl.data[0].url;
           // 获取歌词
           let MisicLyric = await GetPlayMisicLyric(item.id);
-          if (MisicLyric.nolyric) {
+          //console.log(MisicLyric);
+          if (MisicLyric.nolyric || !MisicLyric.lrc) {
             songData.lrc = "[00:00.00] (,,•́ . •̀,,) 抱歉，当前歌曲暂无歌词";
           } else {
             songData.lrc = MisicLyric.lrc.lyric;

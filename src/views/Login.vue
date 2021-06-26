@@ -99,7 +99,7 @@
           </el-form-item>
           <el-form-item>
             <span
-              >注册完成？去<span class="sign" @click="Gotologin"
+              >已有账号？去<span class="sign" @click="Gotologin"
                 >登录</span
               ></span
             >
