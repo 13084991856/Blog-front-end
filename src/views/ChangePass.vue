@@ -74,12 +74,6 @@ export default {
       changerules: {
         oldPass: [
           { required: true, message: "请输入您的原密码", trigger: "blur" },
-          {
-            min: 3,
-            max: 15,
-            message: "长度在 3 到 15 个字符",
-            trigger: "blur",
-          },
         ],
         newPass: [{ validator: validatePass, trigger: "blur" }],
         newPass2: [{ validator: validatePass2, trigger: "blur" }],

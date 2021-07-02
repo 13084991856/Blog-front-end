@@ -13,6 +13,7 @@
     "element-ui": "^2.15.1",
     "hls.js": "^1.0.7",
     "js-cookie": "^2.2.1",
+    "lodash.debounce": "^4.0.8",
     "mavon-editor": "^2.9.1",
     "vue": "^2.6.11",
     "vue-aplayer": "^1.6.1",

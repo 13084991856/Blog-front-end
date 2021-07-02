@@ -144,7 +144,7 @@ const routes = [{
 
 const router = new VueRouter({
     routes,
-    mode: 'history'
+    //mode: 'history'
 })
 
 // 路由守卫 -> 进去路由前

@@ -71,10 +71,10 @@ export default {
       ],
 
       production: [
-        { name: "niuniu音乐(线上)", url: "http://bao.lqjhome.cn:13008" },
+        { name: "niuniu音乐(线上)", url: "http://47.106.179.142" },
         {
-          name: "niuniu音乐(Gitee)",
-          url: "https://gitee.com/huang-rijian/vue-net-ease-cloud-music",
+          name: "niuniu音乐(github)",
+          url: "https://github.com/13084991856/niuniu_music",
         },
       ],
       learning: [{ name: "web前端学习路线" }],
