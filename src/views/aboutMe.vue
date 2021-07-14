@@ -4,7 +4,7 @@
       <div class="block aboutMe">
         <div class="avatar">
           <img
-            src="http://59.110.143.188:3000\uploads\20210611\1623378587962.jpeg"
+            src="http://47.106.179.142:3000\uploads\20210611\1623378587962.jpeg"
             alt=""
           />
         </div>

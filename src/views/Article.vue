@@ -62,6 +62,7 @@
 // import debounce from "@/assets/js/debounce.js";
 import debounce from "lodash.debounce";
 export default {
+  name: "Article",
   data() {
     return {
       articleList: [],
@@ -142,6 +143,7 @@ export default {
     },
 
     handleInput: debounce(function () {
+      this.curPage = 1;
       this.getMyBlogList(this.blog_title, this.curPage, this.pageSize);
     }, 500),
 

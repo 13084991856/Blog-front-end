@@ -71,7 +71,7 @@ export default {
       ],
 
       production: [
-        { name: "niuniu音乐(线上)", url: "http://47.106.179.142" },
+        { name: "niuniu音乐(线上)", url: "http://wenlong.senmusic.cn/" },
         {
           name: "niuniu音乐(github)",
           url: "https://github.com/13084991856/niuniu_music",

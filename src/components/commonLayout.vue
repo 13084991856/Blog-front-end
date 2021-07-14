@@ -20,9 +20,10 @@
             <div class="grid-content bg-purple slideshowBox">
               <!-- 视图切换 -->
               <article ref="article">
-                <keep-alive include="timeLocus">
-                  <router-view></router-view>
+                <keep-alive include="Article">
+                  <router-view v-if="$route.meta.keepAlive"></router-view>
                 </keep-alive>
+                <router-view v-if="!$route.meta.keepAlive"></router-view>
               </article>
             </div>
           </el-col>

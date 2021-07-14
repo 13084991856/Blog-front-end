@@ -88,7 +88,10 @@ const routes = [{
             {
                 path: '/timeLocus',
                 name: 'timeLocus',
-                component: timeLocus
+                component: timeLocus,
+                meta: {
+                    keepAlive: true, //此组件需要被缓存
+                }
             },
             {
                 path: '/detail/:id',
@@ -101,7 +104,8 @@ const routes = [{
                 component: article,
                 meta: {
                     // 需要登录权限
-                    requireAuth: true
+                    requireAuth: true,
+                    keepAlive: true, //此组件需要被缓存
                 }
             }
         ]

@@ -18,7 +18,7 @@
                     <a href="javascript:;" title="个人邮箱：13084991856@163.com" class="item-e-mail"></a>
                   </li>
                   <li class="item">
-                    <a href="https://gitee.com/qq754563544" title="gitee主页" target="_blank" class="item-git"></a>
+                    <a href="https://github.com/13084991856" title="github主页" target="_blank" class="item-git"></a>
                   </li>
                   <li class="item">
                     <a href="javascript:;" title="个人企鹅号" class="item-qq"></a>
@@ -80,7 +80,7 @@
       background-color: #fff;
     }
     .item-git {
-      background: url('~@/assets/img/git.png') no-repeat;
+      background: url('~@/assets/img/github.png') no-repeat;
       background-position: 5px 5px;
       background-size: 80%;
       background-color: #fff;

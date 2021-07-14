@@ -18,7 +18,11 @@
       </p>
       <p class="login" @click="login">=> 管理员登录</p>
       <p>
-        <span> 备案号：粤ICP备2021059936号-1 </span>
+        <span>
+          备案号：<a href="https://beian.miit.gov.cn/" target="_blank"
+            >桂ICP备2021005613号</a
+          >
+        </span>
       </p>
     </div>
   </div>
